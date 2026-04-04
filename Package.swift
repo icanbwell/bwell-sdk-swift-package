@@ -13,6 +13,20 @@ let package = Package(
             targets: ["BWell"]
         )
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/apollographql/apollo-ios.git",
+            .upToNextMajor(from: "1.25.3")
+        ),
+        .package(
+            url: "https://github.com/open-telemetry/opentelemetry-swift.git",
+            from: "2.2.0"
+        ),
+        .package(
+            url: "https://github.com/open-telemetry/opentelemetry-swift-core.git",
+            from: "2.2.0"
+        )
+    ],
     targets: [
         .binaryTarget(
             name: "BWell",
