@@ -15,23 +15,23 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/apollographql/apollo-ios.git",
+            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.0.0-20260406.143728-658/BWellSDK-1.0.0-20260406.143728-658.xcframework.zip",
             .upToNextMajor(from: "1.25.3")
         ),
         .package(
-            url: "https://github.com/open-telemetry/opentelemetry-swift.git",
+            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.0.0-20260406.143728-658/BWellSDK-1.0.0-20260406.143728-658.xcframework.zip",
             from: "2.2.0"
         ),
         .package(
-            url: "https://github.com/open-telemetry/opentelemetry-swift-core.git",
+            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.0.0-20260406.143728-658/BWellSDK-1.0.0-20260406.143728-658.xcframework.zip",
             from: "2.2.0"
         )
     ],
     targets: [
         .binaryTarget(
             name: "BWell",
-            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.0.0-20260403.232628-657/BWellSDK-1.0.0-20260403.232628-657.xcframework.zip",
-            checksum: "e970d5bfacdc0494bc33453ac1822f7be397b66f5adc1f472f1da70d29e0cdaf"
+            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.0.0-20260406.143728-658/BWellSDK-1.0.0-20260406.143728-658.xcframework.zip",
+            checksum: "50045a6b416da2d98f32206257ce0306a743f6f98589abef0e289ed077ed22c7"
         )
     ]
 )
