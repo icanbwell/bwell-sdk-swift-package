@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BWellSDK",
-            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-release/com/bwell/bwell-sdk-swift/1.4.0-beta/BWellSDK-1.4.0-beta.xcframework.zip",
-            checksum: "fb1a02240fdf4cc078e131174c39ee8ec435e1a0681b0cb880250956c9f1345c"
+            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.1.2-20260522.174652-683/BWellSDK-1.1.2-20260522.174652-683.xcframework.zip",
+            checksum: "7b59658030328f6bb4ab6fc8d2919261f8d5a672f80ca930f70cb965b566a9e9"
         )
     ]
 )
