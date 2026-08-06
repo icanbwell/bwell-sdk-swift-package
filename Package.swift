@@ -1,6 +1,13 @@
 // swift-tools-version:5.9
 import PackageDescription
 
+// BWellHealthSync's url/checksum below are placeholders - overwritten by the
+// next successful snapshot/release run from icanbwell/bwell-sdk's CI (see
+// swift-prerelease.yml / publish-release.yml, "Update Swift Package Wrapper"
+// steps), same as BWellSDK's already is on every run. Kept comment-free
+// inside the binaryTarget itself (matching BWellSDK's entry) since that
+// automation's `perl` substitution matches each entry as a contiguous
+// name/url/checksum block.
 let package = Package(
     name: "BWellSDK",
     platforms: [
@@ -25,10 +32,6 @@ let package = Package(
         ),
         .binaryTarget(
             name: "BWellHealthSync",
-            // Placeholder — overwritten by the next successful snapshot/release
-            // run (see icanbwell/bwell-sdk's swift-prerelease.yml /
-            // publish-release.yml, "Update Swift Package Wrapper" steps),
-            // same as BWellSDK's target above already is on every run.
             url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/PLACEHOLDER/BWellHealthSync-PLACEHOLDER.xcframework.zip",
             checksum: "0000000000000000000000000000000000000000000000000000000000000"
         )
