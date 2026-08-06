@@ -1,26 +1,6 @@
 // swift-tools-version:5.9
 import PackageDescription
 
-// BWellHealthSync's url/checksum below are a temporary stopgap, not the real
-// artifact: they point at BWellSDK's own working snapshot zip/checksum so SPM
-// resolution succeeds (the previous literal PLACEHOLDER URL 404s) while the
-// real BWellHealthSync XCFramework hasn't been through a successful CI run
-// yet. Overwritten with the real artifact by the next successful
-// snapshot/release run from icanbwell/bwell-sdk's CI (see swift-prerelease.yml
-// / publish-release.yml, "Update Swift Package Wrapper" steps), same as
-// BWellSDK's already is on every run. Kept comment-free inside the
-// binaryTarget itself (matching BWellSDK's entry) since that automation's
-// `perl` substitution matches each entry as a contiguous name/url/checksum
-// block - an inline comment there broke that match once already.
-//
-// BWellHealthSync's URL has a distinguishing `?dup=healthsync` query string,
-// same checksum as BWellSDK: SwiftPM keys its local artifact cache by the
-// full URL string, so two different binary targets resolving to the exact
-// same URL collide there with a fatal "already exists in file system" error
-// (hit in CI, not locally - swift package resolve doesn't download
-// artifacts, only xcodebuild build/test does). Verified live that Artifactory
-// ignores the query string and serves the identical bytes (same
-// Content-Length), so the checksum is unaffected.
 let package = Package(
     name: "BWellSDK",
     platforms: [
@@ -32,12 +12,6 @@ let package = Package(
             name: "BWellSDK",
             targets: ["BWellSDK"]
         ),
-        // Includes BWellSDK: BWellHealthSync.framework links against and
-        // imports BWellSDK (it depends on the base SDK's client/device/
-        // connection managers), so a consumer of just this product needs
-        // both binaries or resolution fails ("Unable to find module
-        // dependency: 'BWellSDK'"). Verified via a local xcodebuild test
-        // against real built xcframeworks (DCON-4800).
         .library(
             name: "BWellHealthSync",
             targets: ["BWellHealthSync", "BWellSDK"]
