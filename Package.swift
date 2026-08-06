@@ -32,9 +32,15 @@ let package = Package(
             name: "BWellSDK",
             targets: ["BWellSDK"]
         ),
+        // Includes BWellSDK: BWellHealthSync.framework links against and
+        // imports BWellSDK (it depends on the base SDK's client/device/
+        // connection managers), so a consumer of just this product needs
+        // both binaries or resolution fails ("Unable to find module
+        // dependency: 'BWellSDK'"). Verified via a local xcodebuild test
+        // against real built xcframeworks (DCON-4800).
         .library(
             name: "BWellHealthSync",
-            targets: ["BWellHealthSync"]
+            targets: ["BWellHealthSync", "BWellSDK"]
         )
     ],
     targets: [
