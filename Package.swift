@@ -11,13 +11,26 @@ let package = Package(
         .library(
             name: "BWellSDK",
             targets: ["BWellSDK"]
+        ),
+        .library(
+            name: "BWellHealthSync",
+            targets: ["BWellHealthSync"]
         )
     ],
     targets: [
         .binaryTarget(
             name: "BWellSDK",
-            url: "https://icanbwell.jfrog.io/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.0-20260805.125615-721/BWellSDK-1.7.0-20260805.125615-721.xcframework.zip",
+            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.0-20260805.125615-721/BWellSDK-1.7.0-20260805.125615-721.xcframework.zip",
             checksum: "d6f98a59858f952ec7806204fef9cb54336c69fa2294dd9a48516a93519c17a1"
+        ),
+        .binaryTarget(
+            name: "BWellHealthSync",
+            // Placeholder — overwritten by the next successful snapshot/release
+            // run (see icanbwell/bwell-sdk's swift-prerelease.yml /
+            // publish-release.yml, "Update Swift Package Wrapper" steps),
+            // same as BWellSDK's target above already is on every run.
+            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/PLACEHOLDER/BWellHealthSync-PLACEHOLDER.xcframework.zip",
+            checksum: "0000000000000000000000000000000000000000000000000000000000000"
         )
     ]
 )
