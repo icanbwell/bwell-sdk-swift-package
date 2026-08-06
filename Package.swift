@@ -12,6 +12,15 @@ import PackageDescription
 // binaryTarget itself (matching BWellSDK's entry) since that automation's
 // `perl` substitution matches each entry as a contiguous name/url/checksum
 // block - an inline comment there broke that match once already.
+//
+// BWellHealthSync's URL has a distinguishing `?dup=healthsync` query string,
+// same checksum as BWellSDK: SwiftPM keys its local artifact cache by the
+// full URL string, so two different binary targets resolving to the exact
+// same URL collide there with a fatal "already exists in file system" error
+// (hit in CI, not locally - swift package resolve doesn't download
+// artifacts, only xcodebuild build/test does). Verified live that Artifactory
+// ignores the query string and serves the identical bytes (same
+// Content-Length), so the checksum is unaffected.
 let package = Package(
     name: "BWellSDK",
     platforms: [
@@ -36,7 +45,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "BWellHealthSync",
-            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.0-20260805.125615-721/BWellSDK-1.7.0-20260805.125615-721.xcframework.zip",
+            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.0-20260805.125615-721/BWellSDK-1.7.0-20260805.125615-721.xcframework.zip?dup=healthsync",
             checksum: "d6f98a59858f952ec7806204fef9cb54336c69fa2294dd9a48516a93519c17a1"
         )
     ]
