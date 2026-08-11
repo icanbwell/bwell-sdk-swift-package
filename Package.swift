@@ -20,13 +20,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BWellSDK",
-            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-release/com/bwell/bwell-sdk-swift/1.7.0/BWellSDK-1.7.0.xcframework.zip",
-            checksum: "c9b69b41d28053cbdedf08558558bb580bf63e81b49a6f1dc20463d778c2a986"
+            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.1-20260811.204550-727/BWellSDK-1.7.1-20260811.204550-727.xcframework.zip",
+            checksum: "1e931ae8a19796786c43b1a19bc131c0fcdbc7361a70327b5fc6a7ed3f4353fd"
         ),
         .binaryTarget(
             name: "BWellHealthSync",
-            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-release/com/bwell/bwell-sdk-swift/1.7.0/BWellHealthSync-1.7.0.xcframework.zip",
-            checksum: "1e792b84436ea03fbd5004a87979f3980546190fc6ddd6875c7107c473c3e0ff"
+            url: "https://artifacts.bwell.com/artifactory/bwell-sdk-swift-snapshot/com/bwell/bwell-sdk-swift/1.7.1-20260811.204550-727/BWellHealthSync-1.7.1-20260811.204550-727.xcframework.zip",
+            checksum: "8c6d7126f2d2bb5fd8dcc38703a335026a49eacd2675f9432354587f5ea0f0f9"
         )
     ]
 )
